@@ -5,8 +5,9 @@ import scrapy
 from scrapy.http import Request
 from urllib import parse
 
-from ArticleSpider.items import CnblogsArticleItem
+from ArticleSpider.items import CnblogsArticleItem, ArticleItemLoader
 from ArticleSpider.utils.common import get_md5
+from scrapy.loader import ItemLoader
 
 
 class CnblogsSpider(scrapy.Spider):
@@ -31,21 +32,30 @@ class CnblogsSpider(scrapy.Spider):
     def parse_detail(selfs, response):
         article_item = CnblogsArticleItem()
 
-        title = response.css("#cb_post_title_url::text").extract()[0]
-        create_date = response.css('#post-date::text').extract()[0]
-        author = response.css('.postDesc a::text').extract()[0]
-        # 动态生成的，暂时爬取不了
-        view_count = response.css('#post_view_count::text').extract()[0]
-        comment_count = response.css('#post_comment_count::text').extract()[0]
+        # title = response.css("#cb_post_title_url::text").extract()[0]
+        # create_date = response.css('#post-date::text').extract()[0]
+        # author = response.css('.postDesc a::text').extract()[0]
+        # # 动态生成的，暂时爬取不了
+        # view_count = response.css('#post_view_count::text').extract()[0]
+        # comment_count = response.css('#post_comment_count::text').extract()[0]
+        #
+        # article_item["title"] = title
+        # article_item["url"] = response.url
+        # try:
+        #     create_date = datetime.datetime.strptime(create_date, "%Y/%m/%d").date()
+        # except Exception as e:
+        #     create_date = datetime.datetime.now().date()
+        # article_item["create_date"] = create_date
+        # article_item["author"] = author
+        # article_item["url_object_id"] = get_md5(response.url)
 
-        article_item["title"] = title
-        article_item["url"] = response.url
-        try:
-            create_date = datetime.datetime.strptime(create_date, "%Y/%m/%d").date()
-        except Exception as e:
-            create_date = datetime.datetime.now()
-        article_item["create_date"] = create_date
-        article_item["author"] = author
-        article_item["url_object_id"] = get_md5(response.url)
+        # 通过item loader加载item
+        item_loader = ArticleItemLoader(item=CnblogsArticleItem(), response=response)
+        item_loader.add_css("title", '#cb_post_title_url::text')
+        item_loader.add_css('create_date', '#post-date::text')
+        item_loader.add_css('author', '.postDesc a::text')
+        item_loader.add_value('url', response.url)
+
+        article_item = item_loader.load_item()
 
         yield article_item
