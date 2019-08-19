@@ -1,0 +1,207 @@
+
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <title>登录</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+          
+        <link rel="stylesheet" href="css/jw.css" type="text/css" media="all" />
+        <!--[if lte IE 6]><script language="javascript" src="style/js/pngbug.js"></script><![endif]-->
+
+        <style >
+            .fangshua {
+                color: red;
+                font-size: 14px;
+                font-weight: bold;
+            }
+        </style>
+        <script >
+            function openMain() {
+                /* url是main窗口的路径 */
+                var url = "http://jwc.bnuz.edu.cn";
+                /* winparms是打开窗口的一些相关属性设置 */
+                var winparms = "height=0,";
+                winparms += "width=0,";
+                winparms += "left=0,";
+                winparms += "top=0,";
+                winparms += "status=no,toolbar=no,menubar=no,location=no,resizable=no,scrollbars=no,";
+                /* oModal是用来监测是否被IE阻止了弹出窗口的 */
+                var oModal = window.open(url, "_blank", winparms);
+                //当oModal==undefined时，说明IE弹出窗口被阻止 
+                //猜想：IE阻止的原理应该是发现有打开窗口，则立即关闭打开的窗口，所以oModal为undefined 
+                if (oModal != undefined) {
+                    //成功打开，则关闭登陆窗口，使opener为null，调用close时不提示是否关闭窗口的信息 
+                    oModal.opener = null;
+                    oModal.close();
+                } else {
+                    alert("您的IE阻止了弹出窗口。为了能够正常使用系统，请允许本站点的弹出窗口！谢谢！");
+                }
+            }
+
+            (function(w){if(!("WebSocket"in w&&2===w.WebSocket.CLOSING))
+            {var d=document.createElement("div");
+            d.className="browsehappy";
+            d.innerHTML='<div style="width:100%;height:100px;font-size:20px;line-height:100px;text-align:center;background-color:#E90D24;color:#fff;margin-bottom:40px;">你的浏览器版本太低，将不能正常使用本网站的部分功能，请<a target="_blank" href="http://jwc.bnuz.edu.cn/info/1051/1481.htm" style="background-color:#31b0d5;border-color: #269abc;text-decoration: none;padding: 6px 12px;background-image: none;border: 1px solid transparent;border-radius: 4px;color:#FFEB3B;">尽快升级</a></div>';
+            var f=function()
+            {var s=document.getElementsByTagName("body")[0];
+            if("undefined"==typeof(s)){setTimeout(f,10)}
+            else{s.insertBefore(d,s.firstChild)}};f()}}(window));
+
+            function RetLogin(id) {
+
+                if (window.top == window.self) {
+
+                    //    alert('页面不是在框架中打开的');
+
+                } else {
+
+                    window.top.location.href = "default2.aspx"
+                    //   alert('页面是在框架中打开的');
+
+                }
+
+            }
+        </script>
+    </head>
+
+    <body class="login_bg" onload="Javascript: RetLogin(this);">
+        <form name="form1" method="post" action="default2.aspx" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJLTQwNjEzNDEyDxYCHgh1c2VybmFtZWhkZD5HOYLp+FwNuDEclUhijthCeycr" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=iViNm6eU_4irsxetvII2u8c9UHwgm1m1Fc6okbkejf-svBzFuFFHqKzcBuE1&amp;t=636284921597151108" type="text/javascript"></script>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="09394A33" />
+	<input type="hidden" name="__PREVIOUSPAGE" id="__PREVIOUSPAGE" value="P41Qx-bOUYMcrSUDsalSZQ66PXL-H_8xeQ4t7bJ3gWnYCDI-j8Z8SOoK8eM1" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWDAKW88jlCgLs0bLrBgLs0fbZDALs0Yq1BQK/wuqQDgKAqenNDQLN7c0VAveMotMNAu6ImbYPArursYYIApXa/eQDAoixx8kBiSiwx0+kkNIfPcCJnh8qiQwm/2o=" />
+</div>
+            <div class="login_main">
+                <div class="login_logo" style="margin-top:30px;">
+                    <img src="images/bnuz.png" alt="学校图标" style="height:55px;"/>
+                    <div style="word-spacing:5px;margin-left:6em;font-size:24px;"><strong>教 务 管 理 系 统</strong></div>
+                 
+                </div>
+                <div class="login_left">
+                    <img  src="images/login_left.jpg" alt="" />
+                </div>
+                <div class="login_right">
+                    <dl style="line-height: 80%;width:270px" dir="ltr">
+                        <dt class="uesr">
+                            <label>用户名：</label>
+                        </dt>
+                        <dd>
+                            <input name="TextBox1" type="text" id="TextBox1" tabindex="1" class="text_nor" autocomplete="off" placeholder="帐号不能多点同时登录！" style="color:#669999;width:120px;" />
+                        </dd>
+                        <dt class="passw">
+                            <label>密　码：</label>
+                        </dt>
+                        <dd>
+                            <input name="TextBox2" type="password" id="TextBox2" tabindex="2" class="text_nor" style="width:120px;" /> 
+                            <div style="color:#f0ad4e;padding-left:130px;margin-top:-20px;  display:none;" id="capital">大写已锁定</div>  
+                        </dd>
+                        <dt id="yzm" class="yzm">
+                                <label>验证码：</label>
+                        </dt>
+                        <dd id="yzm_dd">
+                            <input name="TextBox3" type="text" id="TextBox3" tabindex="2" class="text_nor" autocomplete="off" style="width:6em;" />
+                            <img src="CheckCode.aspx" alt="看不清楚?请点击刷新" width="60" onclick="this.src='checkcode.aspx?'+ Math.random()" style="cursor : pointer;vertical-align: middle;" />
+                        </dd>
+                        <dd>
+                            <table id="RadioButtonList1" border="0" style="width:163px;">
+	<tr>
+		<td><input id="RadioButtonList1_0" type="radio" name="RadioButtonList1" value="部门" tabindex="3" /><label for="RadioButtonList1_0">部门</label></td><td><input id="RadioButtonList1_1" type="radio" name="RadioButtonList1" value="教师" tabindex="3" /><label for="RadioButtonList1_1">教师</label></td><td><input id="RadioButtonList1_2" type="radio" name="RadioButtonList1" value="学生" checked="checked" tabindex="3" /><label for="RadioButtonList1_2">学生</label></td><td></td>
+	</tr>
+</table>
+                        </dd>
+
+                        <dd>
+                            
+                            <input type="submit" name="Button4_test" value="" id="Button4_test" class="btn_dl" />
+                            <input type="submit" name="Button2" value="" id="Button2" class="btn_cz" />
+                            <input type="submit" name="link_user" value="" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;link_user&quot;, &quot;&quot;, false, &quot;&quot;, &quot;jwgl/email_yz.aspx&quot;, false, false))" id="link_user" class="btn_login" />
+                            <br />
+                            
+                            <br/>
+
+                            <a id="xsmmcx" title="登录名为学号，初始密码是BNUZ+身份证后6位" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;xsmmcx&quot;, &quot;&quot;, false, &quot;&quot;, &quot;xsmmcx_new.aspx&quot;, false, true))">新生学号查询</a>
+                            
+                        </dd>
+                        <dd>
+                            
+                        </dd>
+                    </dl>
+
+
+                </div>
+                <br />
+                <div class="login_copyright">Copyright &copy; 2009 版权所有ZFSOFT</div>
+            </div>
+        </form>
+        <p>
+            &nbsp;</p>
+           
+
+    </body>
+    <script type="text/javascript">  
+        (function(){   
+        var inputPWD = document.getElementById('TextBox2');   
+        var capital = false;   
+        var capitalTip = {   
+        elem:document.getElementById('capital'),   
+        toggle:function(s){   
+        var sy = this.elem.style;   
+        var d = sy.display;   
+        if(s){   
+        sy.display = s;   
+        }else{   
+        sy.display = d =='none' ? '' : 'none';   
+        }   
+        }   
+        }   
+        
+        var detectCapsLock = function(event){   
+        // if(capital){return};   
+        var e = event||window.event;   
+        var keyCode = e.keyCode||e.which; // 按键的keyCode   
+        var isShift = e.shiftKey ||(keyCode == 16 ) || false ; // shift键是否按住   
+        if (   
+        ((keyCode >= 65 && keyCode <= 90 ) && !isShift) // Caps Lock 打开，且没有按住shift键   
+        || ((keyCode >= 97 && keyCode <= 122 ) && isShift)// Caps Lock 打开，且按住shift键   
+        ){capitalTip.toggle('block');capital=true}   
+        else{capitalTip.toggle('none');}   
+        }   
+        inputPWD.onkeypress = detectCapsLock;   
+        inputPWD.onkeyup=function(event){   
+        var e = event||window.event;   
+        if(e.keyCode == 20 && capital){   
+        capitalTip.toggle();   
+        return false;   
+        }   
+        }   
+        })()   
+        </script>  
+    </html>
