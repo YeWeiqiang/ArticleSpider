@@ -109,6 +109,6 @@ class Zhihu(object):
 
 
 if __name__ == "__main__":
-    account = Zhihu('%2B8615817874976', 'ywq1996614')
+    account = Zhihu('%2B8615817874976', '')
     account.login()
     account.test()
